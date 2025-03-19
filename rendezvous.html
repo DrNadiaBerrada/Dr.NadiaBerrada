@@ -133,6 +133,75 @@
             font-weight: bold;
             margin-top: 10px;
         }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+            }
+
+            .logo img {
+                height: 60px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .form-section {
+                width: 90%;
+                padding: 20px;
+                margin-top: 50px;
+            }
+
+            .form-group {
+                text-align: left;
+            }
+
+            .submit-btn {
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-section {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .submit-btn {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+
+        /* Menu Hamburger */
+        .menu-hamburger {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .nav-mobile {
+            display: none;
+            text-align: center;
+        }
+
+        .nav-mobile.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .menu-hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -148,7 +217,19 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
+        <div class="menu-hamburger" onclick="toggleMenu()">
+            <span>☰</span>
+        </div>
     </header>
+
+    <nav class="nav-mobile">
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="rendezvous.html">Rendez-vous</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
     <section class="form-section">
         <h2>Prendre un Rendez-vous</h2>
@@ -238,6 +319,11 @@
                     alert("Erreur lors de l'envoi : " + JSON.stringify(error));
                 });
         });
+
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-mobile');
+            menu.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
